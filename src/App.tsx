@@ -1,4 +1,3 @@
-import React from "react";
 import {
   PieChart,
   Pie,
@@ -12,26 +11,37 @@ import {
 import { BookOpen, Zap } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
+type DataItem = {
+  name: string;
+  value: number;
+};
+
+type WeakApp = {
+  name: string;
+  vulnerability: number;
+  soc: number;
+};
+
 const App = () => {
-  const unpatchedAssetsData = [
+  const unpatchedAssetsData: DataItem[] = [
     { name: "Windows", value: 30 },
     { name: "Linux", value: 25 },
     { name: "Other OS", value: 45 },
   ];
 
-  const unresolvedIncidentsData = [
+  const unresolvedIncidentsData: DataItem[] = [
     { name: "Firewall", value: 15 },
     { name: "Windows", value: 25 },
     { name: "O365", value: 18 },
   ];
 
-  const weakPointsData = [
+  const weakPointsData: DataItem[] = [
     { name: "Patch", value: 40 },
     { name: "SOC", value: 25 },
     { name: "VAPT", value: 35 },
   ];
 
-  const weakAppsData = [
+  const weakAppsData: WeakApp[] = [
     { name: "HR Management", vulnerability: 5, soc: 10 },
     { name: "CRM", vulnerability: 4, soc: 2 },
     { name: "Websites", vulnerability: 10, soc: 3 },
@@ -39,17 +49,18 @@ const App = () => {
 
   const navigate = useNavigate();
 
-  const COLORS = {
+  // ✅ Use Record<string, string> so any string key works safely
+  const COLORS: Record<string, string> = {
     windows: "#3b82f6",
     linux: "#22c55e",
-    otheros: "#facc15",
+    "other os": "#facc15",
     firewall: "#06b6d4",
     o365: "#f97316",
     patch: "#ef4444",
     soc: "#eab308",
     vapt: "#14b8a6",
     vulnerability: "#3b82f6",
-    socBar: "#ef4444",
+    socbar: "#ef4444",
   };
 
   return (
@@ -93,13 +104,15 @@ const App = () => {
                   cy="50%"
                   outerRadius={80}
                   dataKey="value"
-                  label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+                  label={({ percent = 0 }) =>
+                    `${(percent * 100).toFixed(0)}%`
+                  }
                   isAnimationActive={false}
                 >
                   {unpatchedAssetsData.map((entry, index) => (
                     <Cell
                       key={`cell-${index}`}
-                      fill={COLORS[entry.name.toLowerCase()]}
+                      fill={COLORS[entry.name.toLowerCase()] || "#999"}
                     />
                   ))}
                 </Pie>
@@ -122,7 +135,7 @@ const App = () => {
                   {unresolvedIncidentsData.map((entry, index) => (
                     <Cell
                       key={`cell-${index}`}
-                      fill={COLORS[entry.name.toLowerCase()]}
+                      fill={COLORS[entry.name.toLowerCase()] || "#999"}
                     />
                   ))}
                 </Bar>
@@ -144,13 +157,15 @@ const App = () => {
                   innerRadius={40}
                   outerRadius={80}
                   dataKey="value"
-                  label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+                  label={({ percent = 0 }) =>
+                    `${(percent * 100).toFixed(0)}%`
+                  }
                   isAnimationActive={false}
                 >
                   {weakPointsData.map((entry, index) => (
                     <Cell
                       key={`cell-${index}`}
-                      fill={COLORS[entry.name.toLowerCase()]}
+                      fill={COLORS[entry.name.toLowerCase()] || "#999"}
                     />
                   ))}
                 </Pie>
@@ -176,7 +191,7 @@ const App = () => {
                 />
                 <Bar
                   dataKey="soc"
-                  fill={COLORS.socBar}
+                  fill={COLORS.socbar}
                   isAnimationActive={false}
                 />
               </BarChart>
