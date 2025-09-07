@@ -1,69 +1,41 @@
-# React + TypeScript + Vite
+# Knowledge Assessment Result Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Knowledge Assessment Result Page**! This is a simple React component that displays assessment results and security category statuses in a clear and visually appealing way. The page is designed for beginners and focuses on clean, readable code with light-colored themes.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Assessment Summary:**  
+  Quickly see the percentage of correct, incorrect, and “don’t know” answers.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Filter Tabs:**  
+  Filter results by categories like Vulnerability, SOC, and Hardening.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Security Categories Overview:**  
+  View the status of different security categories like Human Layer, Perimeter Security, Network Security, Endpoint Security, and Application Security. Each category shows Vulnerability, SOC, and Hardening statuses with colored indicators.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Navigation:**  
+  Go back to the dashboard easily with a back button.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Light Theme:**  
+  Designed with a clean white background and pastel colors for better readability.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Tech Stack
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **React**: Frontend library for building UI components.
+- **React Router**: For handling navigation and routing.
+- **Lucide-React Icons**: Lightweight icon library for buttons and status indicators.
+- **Tailwind CSS**: For easy and responsive styling.
+
+---
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+
+      
