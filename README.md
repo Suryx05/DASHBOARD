@@ -33,7 +33,8 @@ Welcome to the **Knowledge Assessment Result Page**! This is a simple React comp
 ---
 
 
-      <img width="1889" height="913" alt="image" src="https://github.com/user-attachments/assets/6ce09629-8e9d-4c35-9185-6cdacf275f8b" />
+<img width="1906" height="917" alt="image" src="https://github.com/user-attachments/assets/b31ef15c-23d9-4207-8e87-dff2ce5828cc" />
+
 <img width="1906" height="926" alt="image" src="https://github.com/user-attachments/assets/ea6895e7-00ec-4269-a4fa-f55517f9ab0b" />
 <img width="1920" height="917" alt="image" src="https://github.com/user-attachments/assets/20eb2b39-8e64-4f02-bf93-4efb381a560c" />
 
